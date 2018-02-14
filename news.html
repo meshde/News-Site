@@ -1,11 +1,8 @@
-<!DOCTYPE html>
 <html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
     font-family: "Lato", sans-serif;
-    transition: background-color .5s;
 }
 
 .sidenav {
@@ -42,107 +39,68 @@ body {
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
 </head>
 <body>
-  <div>
-    <h1>Wion news</h1>
-  </div>
 
-<div id="mySidenav" class="sidenav">
+
+
+<center>
+	<h1>
+	Menews.com
+	</h1>
+	<nav>
+		News  | Videos | Profile
+	</nav>
+</center>
+<aside id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-
-<div class="container">
-  <h2>Carousel Example</h2>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-
-      <div class="item active">
-        <img src="2.jpg" alt="Los Angeles" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="1.jpg" alt="Chicago" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="3.jpg" alt="New York" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
-      </div>
-  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
+  <a href="#">India</a>
+  <a href="#">Technology</a>
+  <a href="#">Sports</a>
+  <a href="#">Healthcare</a>
+</aside>
 
 
-<div id="main">
-  <h2>Sidenav Push Example</h2>
-  <p>Click on the e lement below to open the side navigation menu, and push this content to the right. Notice that we add a black see-through background-color to body when the sidenav is opened.</p>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
 }
 </script>
      
+<article>
+	<h3> Rupert Murdoch calls for Facebook and Google to subsidize the news business </h3>
+	<figure>
+		<img src="rupert.jpg" alt="Rupert Murdoch" width="200" height="200">
+		<figcaption>Rupert Murdoch commenting on the  incident. </figcaption>
+	</figure>
+	
+	<p> According to the comedian, Russel Peters, his father was physically abusive and would always use the phrase "Somebody's gonna get hurt real bad..." to threaten Peters as a child. Authorities have taken Peters Sr. into custody </p>
+
+	<section>
+		<p>Rupert Murdoch, the executive chairman of publishing empire News Corporation, issued a statement today proposing a new licensing deal between media organizations and platform-owning tech companies. His goal: get entities like Facebook and Google to pay money to publishers, effectively in exchange for the value news outlets bring to those platforms.</p>
+	</section>
+
+	<section>
+		<p>Citing the popularization of “scurrilous news sources through algorithms that are profitable for these platforms but inherently unreliable,” Murdoch says Facebook and Google should pay money in an arrangement similar to so-called carriage fees. These fees are the money paid by cable and satellite television providers to local, over-the-air broadcast stations for the right to carry local transmissions. In the US, this is an industry norm, with the fees being baked into what’s known as retransmission consent. That arrived back in 1992 in an agreement that became legally mandated between cable operators and stations with the United States Cable Television Consumer Protection and Competition Act.</p>
+	</section>
+	<section>
+		<p>“If Facebook wants to recognize ‘trusted’ publishers then it should pay those publishers a carriage fee similar to the model adopted by cable companies,” Murdoch writes. “The publishers are obviously enhancing the value and integrity of Facebook through their news and content, but are not being adequately rewarded for those services. Carriage payments would have a minor impact on Facebook’s profits but a major impact on the prospects for publishers and journalists.”</p>
+	</section>
+	<section>
+		<p>Murdoch has a point that Facebook and Google, which control a lion’s share of the online advertising business, now have an outsize stake in the journalism business, all while dodging classification as media companies. Google has remained relatively quiet about the issue, though it’s addressed structural failures in its search engine and other ad-supported product related to Russian propaganda and weathered significant controversy lately over YouTube’s questionable role in the media ecosystem.</p>
+	</section>
+
+</article>
 </body>
-</html> 
+</html>
