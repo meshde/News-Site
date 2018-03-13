@@ -2,12 +2,11 @@
 session_start();
 
 // initializing variables
-$username = "";
-$email    = "";
-$errors = array(); 
+include('dbhelper.php');
+$errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = get_connection_to_db();
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
