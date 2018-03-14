@@ -1,37 +1,46 @@
-<?php
-function getfeed($url){
-	$content = file_get_contents($url);
-	$xml = new SimpleXmlElement($content);
-
-	$feed = array();
-	foreach($xml->channel->item as $entry){
-		$item = array (
-			'title' => $entry->title,
-			'desc' => $entry->description,
-			'link' => $entry->link,
-			'date' => $entry->pubDate,
-		);
-	array_push($feed, $item);
-	}
-
-	$return = '';
-	foreach($feed as $item){
-		$title = str_replace(' & ', ' &amp; ', $item['title']);
-		$link = $item['link'];
-		$description = $item['desc'];
-		$date = date('l F d, Y', strtotime($item['date']));
-
-		$return .= '<div class=\'item\'>';
-		$return .= '<p><strong><a href="'.$link.'" title="'.$title.'">'.$title.'</a></strong><br />';
-		$return .= '<small><em>Posted on '.$date.'</em></small></p>';
-		$return .= '<p>'.$description.'</p>';
-		$return .= '</div>';
-		// $return .= '<br>';
-	}
-	return $return;
-}
-?>
 
 <?php 
 // echo '<div id=1>'.getfeed("https://timesofindia.indiatimes.com/rssfeedstopstories.cms").'</div>'; 
+
+include('dbhelper.php');
+include('helper.php');
+$conn = get_connection_to_db();
+$type = $_GET['type'];
+// echo "I'm here";
+$query = 'SELECT url FROM feeds WHERE type=\''.$type.'\';';
+$results = $conn->query($query) or die($conn->error);
+
+$content = '<style>
+
+.item {
+  float: left;
+  
+  width: 100%;
+  height: 150px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  overflow: hidden;
+  background: white;
+  color: #808080;
+  border-radius: 6px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  box-shadow: 4px 4px rgba(0, 0, 0, .3);
+}
+.item img {
+padding-top: 5px;
+    padding-left: 1px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    height: 88%;
+    width: 25%;
+    border-radius: 10px;
+}
+</style>';
+while($row = mysqli_fetch_assoc($results)) {
+	// echo 'Here now in the loop';
+	$content .= getfeed($row['url']);
+}
+echo $content;
+$conn->close
 ?>
