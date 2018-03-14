@@ -39,7 +39,7 @@ body {
     margin-left: 50px;
 }
 
-.demo {
+.content {
   transition: 0.3s;
 }
 @media screen and (max-height: 450px) {
@@ -86,19 +86,19 @@ window.onload = function() {
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("demo").style.marginLeft = "250px";
+    document.getElementById("content").style.marginLeft = "250px";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("demo").style.marginLeft = "25px";
+    document.getElementById("content").style.marginLeft = "25px";
 }
 
 function loadDoc(type) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
+     document.getElementById("content").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "news.php?type="+type, true);
@@ -107,7 +107,7 @@ function loadDoc(type) {
 
 </script>
      
-<div id="demo">
+<main id='content'>
   <?php 
      include('helper.php');
      
@@ -141,6 +141,6 @@ padding-top: 5px;
      $content .= getfeed('https://timesofindia.indiatimes.com/rssfeeds/1221656.cms');
      echo $content;
 ?>
-</div>
+</main>
 </body>
 </html>
