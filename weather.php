@@ -40,12 +40,18 @@ $icon_url = 'http://openweathermap.org/img/w/';
 echo '<style>
 article {
 text-align: center;
+display: block;
+padding-top: 4%;
+padding-bottom: 4%;
 }
-section {
+.airvisual {
     border-left: 6px solid red;
     background-color: lightgrey;
 }
-
+.airvisual img {
+width: 25%;
+height: 8%;
+}
 
 </style>';
 // echo '<script type="text/javascript">var _mcq=["6",""];</script><span id="_mc_mg6"></span><script language="JavaScript" src="http://stat1.moneycontrol.com/mcjs/common/mc_widget.js"></script><noscript><a href="http://www.moneycontrol.com">Sensex/Nifty</a></noscript>';
@@ -58,11 +64,11 @@ for($i=0; $i<sizeof($locations); $i++){
 	$json = json_decode($response);
 	$locations[$i]['response'] = $json;
 }
-echo '<section  id="weather">';
+echo '<section class="airvisual" id="weather">';
 foreach($locations as $location){
 	$weather = $location['response']->data->current->weather;
 	$city = $location['response']->data->city;
-	echo '<article style="display:inline-block;padding-left:20px;">';
+	echo '<article>';
 	echo '<p><strong>'.$city.'</strong></p>';
 	echo '<img src='.$icon_url.$weather->ic.'.png>';
 	echo '<p><em>Temperature: </em>'.$weather->tp.'˚C</p>';
@@ -71,11 +77,11 @@ foreach($locations as $location){
 }
 echo '</section>';
 echo '<br><br>';
-echo '<section id="quality">';
+echo '<section class="airvisual" id="quality">';
 foreach($locations as $location){
 	$city = $location['response']->data->city;
 	$pollution = $location['response']->data->current->pollution;
-	echo '<article style="display:inline-block;padding-left:70px;">';
+	echo '<article>';
 	echo '<p><strong>'.$city.'</strong></p>';
 	echo '<img src='.get_image_src($pollution->aqius).' width=50 height=50>';
 	// echo '<img src="icons/quality/1.png">';

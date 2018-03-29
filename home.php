@@ -27,6 +27,12 @@ body {
     transition: 0.3s;
 }
 
+.mashups {
+  float: right;
+  width: 27%;
+  height: 100%;
+}
+
 .sidenav a:hover {
     color: #f1f1f1;
 }
@@ -39,7 +45,9 @@ body {
     margin-left: 50px;
 }
 
-.content {
+#content {
+  float: left;
+  width: 60%;
   transition: 0.3s;
 }
 @media screen and (max-height: 450px) {
@@ -81,17 +89,29 @@ window.onload = function() {
 			loadDoc(this.id);
 		};
 	}
-	loadDoc('Home');
+	// loadDoc('Home');
+
+	var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+           document.getElementById("weather").innerHTML = this.responseText;
+          }
+        };
+	xhttp.open('GET', 'weather.php', true);
+	xhttp.send();
 };
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("content").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "20%";
+    document.getElementById("content").style.marginLeft = "20%";
+    document.getElementById("content").style.width = "40%";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("content").style.marginLeft = "25px";
+    document.getElementById("content").style.width = "60%";
 }
 
 function loadDoc(type) {
@@ -142,5 +162,22 @@ padding-top: 5px;
      echo $content;
 ?>
 </main>
+<aside class='mashups'>
+<section id='stocks'>
+     <script type="text/javascript">
+	     var _mcq=["6",""];
+     </script>
+     <span id="_mc_mg6"></span>
+     <script language="JavaScript" src="http://stat1.moneycontrol.com/mcjs/common/mc_widget.js">
+     </script>
+     <noscript>
+         <a href="http://www.moneycontrol.com">
+             Sensex/Nifty
+         </a>
+     </noscript>
+</section>
+<section id='weather'>
+</section>
+</aside>
 </body>
 </html>
